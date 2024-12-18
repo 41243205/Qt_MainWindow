@@ -12,10 +12,13 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -32,12 +35,16 @@ public:
     QAction *actionUndo;
     QAction *actionCut;
     QAction *actionCopy;
-    QAction *actionAll;
+    QAction *actionPaste;
     QWidget *centralwidget;
+    QHBoxLayout *horizontalLayout;
+    QTextEdit *textEdit;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *menu_2;
     QStatusBar *statusbar;
+    QToolBar *toolBar;
+    QToolBar *toolBar_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -46,26 +53,63 @@ public:
         MainWindow->resize(800, 600);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName("actionNew");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icons/images/new.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionNew->setIcon(icon);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName("actionOpen");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/icons/images/open.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionOpen->setIcon(icon1);
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName("actionClose");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("images/close.jpg"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionClose->setIcon(icon2);
         actionSave = new QAction(MainWindow);
         actionSave->setObjectName("actionSave");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/icons/images/save.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionSave->setIcon(icon3);
         actionAS = new QAction(MainWindow);
         actionAS->setObjectName("actionAS");
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/icons/images/asave.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionAS->setIcon(icon4);
         actionQuit = new QAction(MainWindow);
         actionQuit->setObjectName("actionQuit");
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8("images/quit.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionQuit->setIcon(icon5);
         actionUndo = new QAction(MainWindow);
         actionUndo->setObjectName("actionUndo");
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/icons/images/undo.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionUndo->setIcon(icon6);
         actionCut = new QAction(MainWindow);
         actionCut->setObjectName("actionCut");
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/icons/images/cut.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionCut->setIcon(icon7);
         actionCopy = new QAction(MainWindow);
         actionCopy->setObjectName("actionCopy");
-        actionAll = new QAction(MainWindow);
-        actionAll->setObjectName("actionAll");
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/icons/images/copy.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionCopy->setIcon(icon8);
+        actionPaste = new QAction(MainWindow);
+        actionPaste->setObjectName("actionPaste");
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/icons/images/paste.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionPaste->setIcon(icon9);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        horizontalLayout = new QHBoxLayout(centralwidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        textEdit = new QTextEdit(centralwidget);
+        textEdit->setObjectName("textEdit");
+
+        horizontalLayout->addWidget(textEdit);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -78,6 +122,12 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName("toolBar");
+        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, toolBar);
+        toolBar_2 = new QToolBar(MainWindow);
+        toolBar_2->setObjectName("toolBar_2");
+        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, toolBar_2);
 
         menubar->addAction(menu->menuAction());
         menubar->addAction(menu_2->menuAction());
@@ -92,7 +142,15 @@ public:
         menu_2->addAction(actionUndo);
         menu_2->addAction(actionCut);
         menu_2->addAction(actionCopy);
-        menu_2->addAction(actionAll);
+        menu_2->addAction(actionPaste);
+        toolBar->addAction(actionNew);
+        toolBar->addAction(actionOpen);
+        toolBar->addAction(actionClose);
+        toolBar->addAction(actionSave);
+        toolBar_2->addAction(actionUndo);
+        toolBar_2->addAction(actionCut);
+        toolBar_2->addAction(actionCopy);
+        toolBar_2->addAction(actionPaste);
 
         retranslateUi(MainWindow);
 
@@ -165,15 +223,17 @@ public:
 #if QT_CONFIG(shortcut)
         actionCopy->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+C", nullptr));
 #endif // QT_CONFIG(shortcut)
-        actionAll->setText(QCoreApplication::translate("MainWindow", "\345\205\250\351\201\270(&A)", nullptr));
+        actionPaste->setText(QCoreApplication::translate("MainWindow", "\350\262\274\344\270\212(&P)", nullptr));
 #if QT_CONFIG(tooltip)
-        actionAll->setToolTip(QCoreApplication::translate("MainWindow", "\345\205\250\351\201\270", nullptr));
+        actionPaste->setToolTip(QCoreApplication::translate("MainWindow", "\350\262\274\344\270\212", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
-        actionAll->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+A", nullptr));
+        actionPaste->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+V", nullptr));
 #endif // QT_CONFIG(shortcut)
         menu->setTitle(QCoreApplication::translate("MainWindow", "\346\252\224\346\241\210", nullptr));
         menu_2->setTitle(QCoreApplication::translate("MainWindow", "\347\267\250\350\274\257", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
+        toolBar_2->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar_2", nullptr));
     } // retranslateUi
 
 };
