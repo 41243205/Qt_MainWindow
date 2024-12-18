@@ -13,7 +13,13 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -43,13 +49,47 @@
     <addaction name="actionUndo"/>
     <addaction name="actionCut"/>
     <addaction name="actionCopy"/>
-    <addaction name="actionAll"/>
+    <addaction name="actionPaste"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionClose"/>
+   <addaction name="actionSave"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionUndo"/>
+   <addaction name="actionCut"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionPaste"/>
+  </widget>
   <action name="actionNew">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/new.png</normaloff>:/icons/images/new.png</iconset>
+   </property>
    <property name="text">
     <string>新增(&amp;N)</string>
    </property>
@@ -61,6 +101,10 @@
    </property>
   </action>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/open.png</normaloff>:/icons/images/open.png</iconset>
+   </property>
    <property name="text">
     <string>開啟(&amp;O)</string>
    </property>
@@ -72,6 +116,10 @@
    </property>
   </action>
   <action name="actionClose">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/close.jpg</normaloff>images/close.jpg</iconset>
+   </property>
    <property name="text">
     <string>關閉(&amp;X)</string>
    </property>
@@ -83,6 +131,10 @@
    </property>
   </action>
   <action name="actionSave">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/save.png</normaloff>:/icons/images/save.png</iconset>
+   </property>
    <property name="text">
     <string>儲存(&amp;S)</string>
    </property>
@@ -94,6 +146,10 @@
    </property>
   </action>
   <action name="actionAS">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/asave.png</normaloff>:/icons/images/asave.png</iconset>
+   </property>
    <property name="text">
     <string>另存(&amp;A)</string>
    </property>
@@ -105,6 +161,10 @@
    </property>
   </action>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset>
+     <normaloff>images/quit.png</normaloff>images/quit.png</iconset>
+   </property>
    <property name="text">
     <string>退出(&amp;Q)</string>
    </property>
@@ -116,6 +176,10 @@
    </property>
   </action>
   <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/undo.png</normaloff>:/icons/images/undo.png</iconset>
+   </property>
    <property name="text">
     <string>還原(&amp;U)</string>
    </property>
@@ -127,6 +191,10 @@
    </property>
   </action>
   <action name="actionCut">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/cut.png</normaloff>:/icons/images/cut.png</iconset>
+   </property>
    <property name="text">
     <string>剪下(&amp;T)</string>
    </property>
@@ -138,6 +206,10 @@
    </property>
   </action>
   <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/copy.png</normaloff>:/icons/images/copy.png</iconset>
+   </property>
    <property name="text">
     <string>複製(&amp;C)</string>
    </property>
@@ -148,18 +220,24 @@
     <string>Ctrl+C</string>
    </property>
   </action>
-  <action name="actionAll">
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/paste.png</normaloff>:/icons/images/paste.png</iconset>
+   </property>
    <property name="text">
-    <string>全選(&amp;A)</string>
+    <string>貼上(&amp;P)</string>
    </property>
    <property name="toolTip">
-    <string>全選</string>
+    <string>貼上</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+A</string>
+    <string>Ctrl+V</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

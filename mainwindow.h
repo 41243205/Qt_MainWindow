@@ -12,5 +12,7 @@ class MainWindow : public QMainWindow,
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private slots:
+    void saveFile();
 };
 #endif // MAINWINDOW_H
