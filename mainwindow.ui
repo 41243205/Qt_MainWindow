@@ -20,53 +20,143 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>檔案</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
-    <addaction name="action_3"/>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionClose"/>
     <addaction name="separator"/>
-    <addaction name="action_5"/>
-    <addaction name="action_6"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionAS"/>
     <addaction name="separator"/>
-    <addaction name="action_8"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>編輯</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionAll"/>
    </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action">
+  <action name="actionNew">
    <property name="text">
-    <string>新增</string>
+    <string>新增(&amp;N)</string>
+   </property>
+   <property name="toolTip">
+    <string>新增檔案</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="actionOpen">
    <property name="text">
-    <string>開啟</string>
+    <string>開啟(&amp;O)</string>
+   </property>
+   <property name="toolTip">
+    <string>開啟檔案</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="actionClose">
    <property name="text">
-    <string>關閉</string>
+    <string>關閉(&amp;X)</string>
+   </property>
+   <property name="toolTip">
+    <string>關閉檔案</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="action_5">
+  <action name="actionSave">
    <property name="text">
-    <string>儲存</string>
+    <string>儲存(&amp;S)</string>
+   </property>
+   <property name="toolTip">
+    <string>儲存檔案</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="action_6">
+  <action name="actionAS">
    <property name="text">
-    <string>另存</string>
+    <string>另存(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>另存新檔</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
    </property>
   </action>
-  <action name="action_8">
+  <action name="actionQuit">
    <property name="text">
-    <string>退出</string>
+    <string>退出(&amp;Q)</string>
+   </property>
+   <property name="toolTip">
+    <string>退出程式</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>還原(&amp;U)</string>
+   </property>
+   <property name="toolTip">
+    <string>還原</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>剪下(&amp;T)</string>
+   </property>
+   <property name="toolTip">
+    <string>剪下</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>複製(&amp;C)</string>
+   </property>
+   <property name="toolTip">
+    <string>複製</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionAll">
+   <property name="text">
+    <string>全選(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>全選</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
    </property>
   </action>
  </widget>
